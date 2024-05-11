@@ -22,11 +22,11 @@ jobs:
       - name: Install SonarQube
         run: |
           sudo docker run -d --name sonarqube -p 9000:9000 -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true sonarqube:latest
-          # Wait for SonarQube to start
+          # Wait for SonarQube to start running
           sleep 30
           curl -u admin:admin http://localhost:9000/api/system/status
       - name: SSH into the GitHub runner
-        uses: appleboy/ssh-action@v0.1.10
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ runner.ip }}
           username: ${{ runner.os == 'Linux' && 'ubuntu' || 'runneradmin' }}
