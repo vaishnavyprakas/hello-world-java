@@ -1,0 +1,26 @@
+name: Install Docker and SonarQube
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          docker --version
+
+      - name: Install SonarQube
+        run: |
+          sudo docker run -d --name sonarqube -p 9000:9000 -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true sonarqube:latest
+          # Wait for SonarQube to start
+          sleep 30
+          curl -u admin:admin http://localhost:9000/api/system/status
