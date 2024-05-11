@@ -33,5 +33,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ runner.port }}
           script: |
-            ssh -L 9000:localhost:9000 -N ${{ runner.os == 'Linux' && 'ubuntu' || 'runneradmin' }}@localhost
-        
+            ssh -L 9000:localhost:9000 -N ${{ runner.os == 'Linux' && 'ubuntu' || 'runneradmin' }}@localhost        
