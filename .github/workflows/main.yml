@@ -3,7 +3,7 @@ name: Install Docker and SonarQube
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
