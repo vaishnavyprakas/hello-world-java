@@ -26,7 +26,7 @@ jobs:
           sleep 30
           curl -u admin:admin http://localhost:9000/api/system/status
       - name: SSH into the GitHub runner
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ runner.ip }}
           username: ${{ runner.os == 'Linux' && 'ubuntu' || 'runneradmin' }}
