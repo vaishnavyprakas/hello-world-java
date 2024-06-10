@@ -2,6 +2,7 @@ package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
+import java.util.Optional;
 
 public class HelloWorldFunction {
     @FunctionName("hello")
@@ -12,4 +13,5 @@ public class HelloWorldFunction {
         return request.createResponseBuilder(HttpStatus.OK).body("Hello, World!").build();
     }
 }
+
 
