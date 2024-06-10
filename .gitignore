@@ -1,2 +1,5 @@
 *.class
 
+
+.python_packages
+__pycache__
